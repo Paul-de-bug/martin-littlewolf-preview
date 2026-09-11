@@ -34,6 +34,9 @@
   }
 
   function srcFor(n, ext) {
+    if (/Solutions(?:%20| )-(?:%20| )12000$/.test(folder) && [9, 13, 14, 15, 16, 17].indexOf(n) !== -1) {
+      return 'assets/repaired-12000/' + n + '.png';
+    }
     if (/^https:\/\//.test(folder)) { return folder + '/' + n + '.' + ext; }
     return encodePath(folder + '/' + n + '.' + ext);
   }

@@ -1,8 +1,7 @@
-# Martin Littlewolf Pages Preview
+# Martin Littlewolf Books
 
-Temporary GitHub Pages preview of Martin Littlewolf Books. This repository contains only static website output; it does not change the existing author site or its custom domain.
+Live author website on GitHub Pages. Subscriber records are held separately in Subscription Server, in the **Martin Littlewolf Books** list.
 
-Signup and unsubscribe use the separate Subscription Server list **Martin Littlewolf Books — Pages Preview**. There is no test URL switch. Subscriber records stay in Sites, never in this repository. Owner dashboard: https://subscription-server.cgp1975.chatgpt.site/
+The old `Paul-de-bug/martinlittlewolf` repository is retained as a version-pinned solution-file archive; its Pages site is disabled after the domain handover. Do not delete that repository while these solution links are in use.
 
-Source: https://github.com/Paul-de-bug/ML-REDESIGN
-Rebuild with `python3 tools/build-pages-preview.py --output /path/to/new/staging-directory` in the source checkout. Publish this repository's `main` branch from `/ (root)`. Keep `.nojekyll`; do not add a `CNAME` or change DNS.
+Source and export tool: https://github.com/Paul-de-bug/ML-REDESIGN

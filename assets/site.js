@@ -35,7 +35,7 @@
   var form = document.getElementById('signup-form');
   if (!form) { return; }
   var unsubscribing = new URL(form.action, window.location.href).pathname.endsWith('/unsubscribe');
-  var testEndpoint = 'https://subscription-server.cgp1975.chatgpt.site/api/lists/3c68e506-c7b2-4a19-afb3-fe9b72b33bf3';
+  var testEndpoint = 'https://subscription-server.cgp1975.chatgpt.site/api/lists/60bc6047-58cd-4417-a215-34e3eb3cc29d';
   var note = document.getElementById('signup-note');
   var button = form.querySelector('button[type="submit"]');
   var successDialog = document.getElementById('subscription-success');

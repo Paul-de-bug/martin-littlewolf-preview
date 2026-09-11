@@ -1,0 +1,1088 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Puzzle JSON Viewer</title>
+  <link rel="stylesheet" href="./styles/affected-puzzles.css" />
+</head>
+<body class="bg-gray-100 min-h-screen p-6 font-abhaya">
+  <div class="max-w-4xl mx-auto">
+    <h1 class="text-3xl font-bold mb-6 text-center text-gray-800">Affected Puzzles</h1>
+     <p class="text-center  text-xl mb-4">Below are the puzzles and words affected by the layout error.</p>
+    <p class="text-center  text-xl mb-4">Cross these off before you start solving. The remaining words are all findable.</p>
+
+    <div class="flex justify-center gap-4 mb-6">
+
+  <a href="https://www.martinlittlewolf.com/assets/Affected%20Puzzles.pdf" download target="_blank" class="px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700 shadow">
+  DOWNLOAD / PRINT
+</a>
+  <button onclick="bookmarkPage()" class="hidden md:block px-4 py-2 bg-yellow-500 text-white rounded hover:bg-yellow-600 shadow">
+    BOOKMARK
+  </button>
+</div>
+
+    <div id="puzzleContainer" class="space-y-4 uppercase"></div>
+  </div>
+
+  <script>
+    // Load puzzles dynamically or paste your JSON here
+    const puzzles = [
+   {
+    "puzzle": "3",
+    "words": [
+      "chase",
+      "chew",
+      "groom",
+      "shiver"
+    ]
+  },
+  {
+    "puzzle": "4",
+    "words": [
+      "luton",
+      "redhill",
+      "sutton"
+    ]
+  },
+  {
+    "puzzle": "7",
+    "words": [
+      "ranger",
+      "victory",
+      "yamato"
+    ]
+  },
+  {
+    "puzzle": "8",
+    "words": [
+      "earwig",
+      "ladybug",
+      "weevil"
+    ]
+  },
+  {
+    "puzzle": "11",
+    "words": [
+      "bonus",
+      "diamond",
+      "reels"
+    ]
+  },
+  {
+    "puzzle": "12",
+    "words": [
+      "mikado",
+      "nawab"
+    ]
+  },
+  {
+    "puzzle": "15",
+    "words": [
+      "seam",
+      "shovel"
+    ]
+  },
+  {
+    "puzzle": "16",
+    "words": [
+      "actor",
+      "boards",
+      "fade",
+      "scene",
+      "score",
+      "sound"
+    ]
+  },
+  {
+    "puzzle": "19",
+    "words": [
+      "gharial",
+      "snake",
+      "turtle",
+      "venom"
+    ]
+  },
+  {
+    "puzzle": "20",
+    "words": [
+      "curtsy",
+      "silence",
+      "symbols"
+    ]
+  },
+  {
+    "puzzle": "23",
+    "words": [
+      "duck",
+      "ketchup",
+      "pesto"
+    ]
+  },
+  {
+    "puzzle": "24",
+    "words": [
+      "canon",
+      "kohen",
+      "pastor",
+      "provost",
+      "pujari",
+      "rabbi"
+    ]
+  },
+  {
+    "puzzle": "27",
+    "words": [
+      "expose",
+      "cafe",
+      "siesta"
+    ]
+  },
+  {
+    "puzzle": "28",
+    "words": [
+      "alaska",
+      "avalon",
+      "beara",
+      "crozon",
+      "kola",
+      "yucatan"
+    ]
+  },
+  {
+    "puzzle": "31",
+    "words": [
+      "darger",
+      "lawson",
+      "paulson",
+      "rollins"
+    ]
+  },
+  {
+    "puzzle": "32",
+    "words": [
+      "bargain",
+      "deal",
+      "sale",
+      "store"
+    ]
+  },
+  {
+    "puzzle": "35",
+    "words": [
+      "big",
+      "eyes",
+      "teeth"
+    ]
+  },
+  {
+    "puzzle": "36",
+    "words": [
+      "eyes",
+      "legs",
+      "pincers",
+      "sheets",
+      "wrists"
+    ]
+  },
+  {
+    "puzzle": "39",
+    "words": [
+      "heat",
+      "solar",
+      "transom"
+    ]
+  },
+  {
+    "puzzle": "40",
+    "words": [
+      "antigen",
+      "biology",
+      "liver"
+    ]
+  },
+  {
+    "puzzle": "43",
+    "words": [
+      "edison",
+      "goodall",
+      "lamarck"
+    ]
+  },
+  {
+    "puzzle": "44",
+    "words": [
+      "leotard",
+      "lowbar",
+      "meet"
+    ]
+  },
+  {
+    "puzzle": "47",
+    "words": [
+      "perugia",
+      "ravenna",
+      "rome",
+      "turin",
+      "verona"
+    ]
+  },
+  {
+    "puzzle": "48",
+    "words": [
+      "jude",
+      "luke",
+      "mark",
+      "martin",
+      "mary",
+      "stephen"
+    ]
+  },
+  {
+    "puzzle": "51",
+    "words": [
+      "cable",
+      "mtv",
+      "news",
+      "service",
+      "starz"
+    ]
+  },
+  {
+    "puzzle": "52",
+    "words": [
+      "anemone",
+      "mussel",
+      "seaweed",
+      "urchin",
+      "vast"
+    ]
+  },
+  {
+    "puzzle": "55",
+    "words": [
+      "aether",
+      "cosmos",
+      "hermit"
+    ]
+  },
+  {
+    "puzzle": "56",
+    "words": [
+      "cancan",
+      "folk",
+      "garba"
+    ]
+  },
+  {
+    "puzzle": "59",
+    "words": [
+      "dosage",
+      "gargle",
+      "inhaler",
+      "patient"
+    ]
+  },
+  {
+    "puzzle": "60",
+    "words": [
+      "hook",
+      "icicles",
+      "runner"
+    ]
+  },
+  {
+    "puzzle": "63",
+    "words": [
+      "bayonne",
+      "laval",
+      "limoges",
+      "nice",
+      "niort",
+      "paris"
+    ]
+  },
+  {
+    "puzzle": "64",
+    "words": [
+      "crisis",
+      "death",
+      "sinking",
+      "steel"
+    ]
+  },
+  {
+    "puzzle": "67",
+    "words": [
+      "halt",
+      "seize"
+    ]
+  },
+  {
+    "puzzle": "68",
+    "words": [
+      "caves",
+      "rocks",
+      "soil",
+      "tunnels"
+    ]
+  },
+  {
+    "puzzle": "71",
+    "words": [
+      "booster",
+      "control",
+      "fuel",
+      "mercury"
+    ]
+  },
+  {
+    "puzzle": "72",
+    "words": [
+      "cars",
+      "marble",
+      "ship"
+    ]
+  },
+  {
+    "puzzle": "75",
+    "words": [
+      "churro",
+      "junta",
+      "mescal",
+      "plaza"
+    ]
+  },
+  {
+    "puzzle": "76",
+    "words": [
+      "inquiry",
+      "insight",
+      "problem",
+      "soul"
+    ]
+  },
+  {
+    "puzzle": "79",
+    "words": [
+      "beets",
+      "carrots",
+      "durian",
+      "quinoa"
+    ]
+  },
+  {
+    "puzzle": "80",
+    "words": [
+      "auden",
+      "crane",
+      "larkin",
+      "stevens"
+    ]
+  },
+  {
+    "puzzle": "83",
+    "words": [
+      "iceberg",
+      "jungle",
+      "moon"
+    ]
+  },
+  {
+    "puzzle": "84",
+    "words": [
+      "mullet",
+      "pike",
+      "pollock",
+      "redfish",
+      "trout"
+    ]
+  },
+  {
+    "puzzle": "87",
+    "words": [
+      "garden",
+      "pierce",
+      "poppins",
+      "queen"
+    ]
+  },
+  {
+    "puzzle": "88",
+    "words": [
+      "clouds",
+      "rockets",
+      "snow",
+      "wind"
+    ]
+  },
+  {
+    "puzzle": "91",
+    "words": [
+      "balance",
+      "blossom",
+      "color",
+      "harmony",
+      "lotus",
+      "plum"
+    ]
+  },
+  {
+    "puzzle": "92",
+    "words": [
+      "anemone",
+      "daisy",
+      "gazania",
+      "lobelia",
+      "phlox"
+    ]
+  },
+  {
+    "puzzle": "95",
+    "words": [
+      "clear",
+      "cloudy",
+      "shower",
+      "tornado",
+      "weather"
+    ]
+  },
+  {
+    "puzzle": "96",
+    "words": [
+      "minnow",
+      "mullet"
+    ]
+  },
+  {
+    "puzzle": "99",
+    "words": [
+      "acacia",
+      "elm",
+      "hickory",
+      "pear",
+      "spruce",
+      "willow"
+    ]
+  },
+  {
+    "puzzle": "100",
+    "words": [
+      "caesar",
+      "getty",
+      "johnson",
+      "musk",
+      "page"
+    ]
+  },
+  {
+    "puzzle": "103",
+    "words": [
+      "siskin",
+      "sparrow",
+      "swallow"
+    ]
+  },
+  {
+    "puzzle": "104",
+    "words": [
+      "gifts",
+      "letters",
+      "trust"
+    ]
+  },
+  {
+    "puzzle": "107",
+    "words": [
+      "striped",
+      "tulle"
+    ]
+  },
+  {
+    "puzzle": "108",
+    "words": [
+      "adams",
+      "ford",
+      "goodman",
+      "hawkes",
+      "irving"
+    ]
+  },
+  {
+    "puzzle": "111",
+    "words": [
+      "barrel",
+      "carbon",
+      "casing",
+      "storage"
+    ]
+  },
+  {
+    "puzzle": "112",
+    "words": [
+      "chiffon",
+      "crepe"
+    ]
+  },
+  {
+    "puzzle": "115",
+    "words": [
+      "jhana",
+      "lama",
+      "metta",
+      "mudita",
+      "sutra",
+      "vesak"
+    ]
+  },
+  {
+    "puzzle": "116",
+    "words": [
+      "gesture",
+      "lecture",
+      "logic",
+      "notes",
+      "seminar",
+      "venue",
+      "volume"
+    ]
+  },
+  {
+    "puzzle": "119",
+    "words": [
+      "destiny",
+      "magic"
+    ]
+  },
+  {
+    "puzzle": "120",
+    "words": [
+      "bhajan",
+      "calypso",
+      "j-pop",
+      "k-pop",
+      "punk",
+      "qawwali",
+      "samba"
+    ]
+  },
+  {
+    "puzzle": "123",
+    "words": [
+      "muesli",
+      "reich",
+      "spatzel",
+      "stein"
+    ]
+  },
+  {
+    "puzzle": "124",
+    "words": [
+      "bind",
+      "clamp"
+    ]
+  },
+  {
+    "puzzle": "127",
+    "words": [
+      "bursa",
+      "erzurum",
+      "karaman",
+      "mersin",
+      "tokat"
+    ]
+  },
+  {
+    "puzzle": "128",
+    "words": [
+      "cozy",
+      "reading"
+    ]
+  },
+  {
+    "puzzle": "131",
+    "words": [
+      "coffee",
+      "learn"
+    ]
+  },
+  {
+    "puzzle": "132",
+    "words": [
+      "acting",
+      "career",
+      "jeane",
+      "singer",
+      "singing",
+      "star"
+    ]
+  },
+  {
+    "puzzle": "135",
+    "words": [
+      "hazy",
+      "sunrise",
+      "sunset",
+      "warm"
+    ]
+  },
+  {
+    "puzzle": "136",
+    "words": [
+      "bacon",
+      "basil",
+      "ham",
+      "popcorn"
+    ]
+  },
+  {
+    "puzzle": "139",
+    "words": [
+      "blare",
+      "clang",
+      "honk",
+      "hum",
+      "thump",
+      "wham"
+    ]
+  },
+  {
+    "puzzle": "140",
+    "words": [
+      "finish",
+      "reserve",
+      "rich"
+    ]
+  },
+  {
+    "puzzle": "143",
+    "words": [
+      "chord",
+      "ella",
+      "flute",
+      "modal",
+      "ragtime"
+    ]
+  },
+  {
+    "puzzle": "144",
+    "words": [
+      "big-toe",
+      "pad",
+      "toes"
+    ]
+  },
+  {
+    "puzzle": "147",
+    "words": [
+      "caring",
+      "orphans",
+      "patron",
+      "royalty"
+    ]
+  },
+  {
+    "puzzle": "148",
+    "words": [
+      "mining",
+      "pony",
+      "saddle"
+    ]
+  },
+  {
+    "puzzle": "151",
+    "words": [
+      "memphis",
+      "ninevah",
+      "susa"
+    ]
+  },
+  {
+    "puzzle": "152",
+    "words": [
+      "iron",
+      "machine",
+      "sand"
+    ]
+  },
+  {
+    "puzzle": "155",
+    "words": [
+      "combat",
+      "duel",
+      "gun",
+      "jet",
+      "mission",
+      "plane"
+    ]
+  },
+  {
+    "puzzle": "156",
+    "words": [
+      "cottbus",
+      "mainz"
+    ]
+  },
+  {
+    "puzzle": "159",
+    "words": [
+      "acorn",
+      "amber",
+      "sweater"
+    ]
+  },
+  {
+    "puzzle": "160",
+    "words": [
+      "amor",
+      "moana",
+      "sicario",
+      "witness"
+    ]
+  },
+  {
+    "puzzle": "163",
+    "words": [
+      "clink",
+      "dance",
+      "holiday",
+      "joy",
+      "music",
+      "reuinion"
+    ]
+  },
+  {
+    "puzzle": "164",
+    "words": [
+      "escape",
+      "heart",
+      "prince",
+      "queen",
+      "vow"
+    ]
+  },
+  {
+    "puzzle": "167",
+    "words": [
+      "amazon",
+      "don",
+      "ohio",
+      "rhine",
+      "yangtze",
+      "zambezi"
+    ]
+  },
+  {
+    "puzzle": "168",
+    "words": [
+      "horizon",
+      "nebula",
+      "photon",
+      "sun"
+    ]
+  },
+  {
+    "puzzle": "171",
+    "words": [
+      "beltway",
+      "circle",
+      "trooper"
+    ]
+  },
+  {
+    "puzzle": "172",
+    "words": [
+      "keybed",
+      "lid",
+      "quartet",
+      "rim",
+      "trio"
+    ]
+  },
+  {
+    "puzzle": "175",
+    "words": [
+      "galip",
+      "marula",
+      "paradox",
+      "pinon"
+    ]
+  },
+  {
+    "puzzle": "176",
+    "words": [
+      "blended"
+    ]
+  },
+  {
+    "puzzle": "179",
+    "words": [
+      "chari",
+      "gambia",
+      "kagera",
+      "kasai",
+      "luvuvhu",
+      "ogooue"
+    ]
+  },
+  {
+    "puzzle": "180",
+    "words": [
+      "beer",
+      "garlic",
+      "turnips"
+    ]
+  },
+  {
+    "puzzle": "183",
+    "words": [
+      "black",
+      "oswego",
+      "peace",
+      "potomac"
+    ]
+  },
+  {
+    "puzzle": "184",
+    "words": [
+      "feign",
+      "feisty",
+      "neither"
+    ]
+  },
+  {
+    "puzzle": "187",
+    "words": [
+      "desk",
+      "drapes",
+      "hanger",
+      "room",
+      "safe"
+    ]
+  },
+  {
+    "puzzle": "188",
+    "words": [
+      "dayton",
+      "el paso",
+      "elkhart",
+      "erie",
+      "fargo"
+    ]
+  },
+  {
+    "puzzle": "191",
+    "words": [
+      "kwanzaa",
+      "quilts",
+      "ski",
+      "sleigh"
+    ]
+  },
+  {
+    "puzzle": "192",
+    "words": [
+      "gatiss",
+      "mcgwire",
+      "moses",
+      "ruffalo",
+      "spitz"
+    ]
+  },
+  {
+    "puzzle": "195",
+    "words": [
+      "jodhpur",
+      "raipur",
+      "thane"
+    ]
+  },
+  {
+    "puzzle": "196",
+    "words": [
+      "scenery",
+      "trails"
+    ]
+  },
+  {
+    "puzzle": "199",
+    "words": [
+      "caption",
+      "feature",
+      "graph",
+      "libel",
+      "media",
+      "opinion",
+      "spin"
+    ]
+  },
+  {
+    "puzzle": "200",
+    "words": [
+      "punch",
+      "twist",
+      "warm-up"
+    ]
+  },
+  {
+    "puzzle": "203",
+    "words": [
+      "durian",
+      "kiwi",
+      "lime",
+      "quince",
+      "sapote"
+    ]
+  },
+  {
+    "puzzle": "204",
+    "words": [
+      "clay",
+      "orogeny",
+      "rift",
+      "slate"
+    ]
+  },
+  {
+    "puzzle": "207",
+    "words": [
+      "apostle",
+      "faith",
+      "galilee",
+      "gospel",
+      "joseph",
+      "martha"
+    ]
+  },
+  {
+    "puzzle": "208",
+    "words": [
+      "bogart",
+      "cooper",
+      "flynn",
+      "fonda",
+      "karloff",
+      "russell"
+    ]
+  },
+  {
+    "puzzle": "211",
+    "words": [
+      "fabric",
+      "fiber",
+      "marble",
+      "pastel"
+    ]
+  },
+  {
+    "puzzle": "212",
+    "words": [
+      "castle",
+      "cottage",
+      "fairy",
+      "forest",
+      "griffin",
+      "legend",
+      "tale",
+      "witch"
+    ]
+  },
+  {
+    "puzzle": "215",
+    "words": [
+      "assault",
+      "guard",
+      "parade",
+      "patrol"
+    ]
+  },
+  {
+    "puzzle": "216",
+    "words": [
+      "budget",
+      "cartel",
+      "debt",
+      "hedge",
+      "land",
+      "subsidy",
+      "supply"
+    ]
+  },
+  {
+    "puzzle": "219",
+    "words": [
+      "drive",
+      "wander"
+    ]
+  },
+  {
+    "puzzle": "220",
+    "words": [
+      "elk",
+      "fungi",
+      "swine"
+    ]
+  },
+  {
+    "puzzle": "223",
+    "words": [
+      "forest",
+      "hole",
+      "lagoon",
+      "lodge",
+      "rookery"
+    ]
+  },
+  {
+    "puzzle": "224",
+    "words": [
+      "caulk",
+      "patch",
+      "resin",
+      "washers"
+    ]
+  },
+
+]; // <- insert your JSON array here
+
+    const container = document.getElementById('puzzleContainer');
+
+    puzzles.forEach(({ puzzle, words }) => {
+      const card = document.createElement('div');
+      card.className = "bg-white shadow rounded-xl p-4 border border-gray-200";
+
+      const heading = document.createElement('h2');
+      heading.className = "text-xl font-semibold text-gray-700 mb-2";
+      heading.textContent = `Puzzle #${puzzle}`;
+
+      const wordList = document.createElement('ul');
+      wordList.className = "flex flex-wrap gap-2 text-sm text-gray-600";
+
+      words.forEach(word => {
+        const item = document.createElement('li');
+        item.className = "text-black px-2 py-1 rounded";
+        item.textContent = word;
+        wordList.appendChild(item);
+      });
+
+      card.appendChild(heading);
+      card.appendChild(wordList);
+      container.appendChild(card);
+    });
+  </script>
+  <script>
+
+
+  function bookmarkPage() {
+    const title = document.title;
+    const url = window.location.href;
+    try {
+      window.external.AddFavorite(url, title); // IE
+    } catch (e) {
+      alert("Press Ctrl+D (or Cmd+D) to bookmark this page.");
+    }
+  }
+</script>
+
+</body>
+</html>

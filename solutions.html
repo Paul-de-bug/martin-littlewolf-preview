@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solutions · The Complete Bible Word Search for Adults – 4 Books in 1</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@500;700&family=Public+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./styles/site.css?v=20260910t">
+</head>
+<body>
+    <header class="site-header">
+        <div class="wrap">
+            <a class="site-logo" href="./index.html"><img src="./assets/web/logo.png" alt="Martin Littlewolf"></a>
+            <nav class="site-nav" aria-label="Main">
+                <a href="./index.html#solutions">Solutions</a>
+                <a href="./index.html#books">Books</a>
+                <a href="./index.html#languages">Other languages</a>
+                <a href="./index.html#bible">Bible</a>
+                <a href="./index.html#extra-large">Extra large print</a>
+                <a href="./index.html#jumbo">Jumbo print</a>
+                <a href="./index.html#subscribe" class="nav-subscribe">Subscribe</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="bookbar">
+        <div class="wrap">
+            <img class="cover" src="./assets/covers/bible4in1.jpg" alt="">
+            <div class="bookbar-main">
+                <a class="back" href="./index.html#solutions">‹ All solutions</a>
+                <h1>The Complete Bible Word Search for Adults – 4 Books in 1</h1>
+            </div>
+        </div>
+    </section>
+
+    <section class="toolbar">
+        <div class="wrap">
+            <div class="puzzle-nav">
+                <a class="btn btn-ghost" href="#" data-nav="prev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"></path></svg><span class="btn-text">Previous</span></a>
+                <div class="select-wrap">
+                    <label class="visually-hidden" for="puzzle-select">Choose a puzzle</label>
+                    <select class="puzzle-select" id="puzzle-select"></select>
+                </div>
+                <a class="btn btn-ghost" href="#" data-nav="next"><span class="btn-text">Next</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"></path></svg></a>
+                <span class="tip">Tip: use the ← → keys, or swipe on a phone.</span>
+            </div>
+            <div class="viewer-actions">
+                <a class="btn btn-ghost" href="#" id="print-button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9V3h12v6"></path><rect x="3" y="9" width="18" height="9" rx="2"></rect><path d="M6 14h12v7H6z"></path></svg>Print</a>
+                <a class="btn btn-navy" href="https://www.martinlittlewolf.com/assets/8000%20-%20Solutions.pdf" download><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"></path><path d="M7 10l5 5 5-5"></path><path d="M4 21h16"></path></svg><span class="pdf-long">Download all solutions (PDF)</span><span class="pdf-short">Download PDF</span></a>
+            </div>
+        </div>
+    </section>
+
+    <main class="stage" id="viewer" data-folder="https://www.martinlittlewolf.com/assets/Solutions" data-count="200" data-ext="png">
+        <div class="wrap">
+            <div class="solution-card">
+                <img id="solution-image" alt="">
+                <p class="solution-msg" id="solution-message" hidden>This solution isn&#x27;t available yet. Try the PDF, or get in touch.</p>
+            </div>
+            <div class="puzzle-nav bottom-nav">
+                <a class="btn btn-ghost" href="#" data-nav="prev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"></path></svg>Previous</a>
+                <strong id="puzzle-counter"></strong>
+                <a class="btn btn-ghost" href="#" data-nav="next">Next<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"></path></svg></a>
+            </div>
+            <p class="note"></p>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="wrap">
+            <div class="brand">Martin Littlewolf</div>
+            <nav aria-label="Footer">
+                <a href="./index.html#solutions">Solutions</a>
+                <a href="./index.html#books">Books</a>
+                <a href="./index.html#languages">Other languages</a>
+                <a href="./index.html#bible">Bible</a>
+                <a href="./unsubscribe.html">Unsubscribe</a>
+                <a class="footer-social" href="https://www.facebook.com/profile.php?id=61583914396755" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 21v-7.5h2.5l.4-3h-2.9V8.6c0-.9.3-1.5 1.5-1.5h1.6V4.4c-.3 0-1.2-.1-2.3-.1-2.3 0-3.9 1.4-3.9 4v2.2H7.9v3h2.5V21h3.1z"></path></svg>Facebook</a>
+            </nav>
+            <div class="copy">© <span data-year>2026</span> Martin Littlewolf</div>
+        </div>
+    </footer>
+    <script type="application/json" id="viewer-strings">{"puzzle": "Puzzle", "of": "of"}</script>
+    <script src="./assets/viewer.js?v=20260910t"></script>
+    <script src="./assets/site.js?v=20260910t"></script>
+    <script data-goatcounter="https://martinlittlewolf.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

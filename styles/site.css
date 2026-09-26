@@ -115,19 +115,36 @@ p { margin: 0; }
 .books { display: grid; grid-template-columns: repeat(auto-fill, minmax(380px, 1fr)); gap: 18px; }
 .two-col { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: 56px; }
 
+.books { align-items: start; }
+.book { border: 1px solid var(--line); border-radius: 10px; background: #ffffff; }
+.book[open] { border-color: var(--line-strong); }
 .book-row {
   display: flex; gap: 18px; align-items: center; padding: 18px;
-  border: 1px solid var(--line); border-radius: 10px; background: #ffffff;
+  cursor: pointer; list-style: none; border-radius: 10px;
 }
+.book-row::-webkit-details-marker { display: none; }
+.book-row:hover .book-title { color: var(--navy); }
 .book-row img { height: 132px; width: auto; flex-shrink: 0; }
-.book-row.compact { padding: 14px; }
-.book-row.compact img { height: 100px; }
+.book.compact .book-row { padding: 14px; }
+.book.compact .book-row img { height: 100px; }
 .book-body { display: flex; flex-direction: column; gap: 5px; flex: 1; min-width: 0; }
 .book-title { font-family: var(--font-display); font-size: 22px; font-weight: 700; line-height: 1.15; }
-.book-row.compact .book-title { font-size: 20px; }
+.book.compact .book-title { font-size: 20px; }
 .book-stat { font-size: 15px; color: var(--muted); }
-.book-actions { display: flex; flex-wrap: wrap; gap: 8px; padding-top: 6px; }
-.book-actions .btn { min-height: 42px; font-size: 14px; padding: 0 12px; }
+.book-chevron {
+  flex-shrink: 0; width: 11px; height: 11px; margin: 0 6px 6px 0;
+  border-right: 2px solid var(--muted); border-bottom: 2px solid var(--muted);
+  transform: rotate(45deg); transition: transform 0.2s ease;
+}
+.book[open] .book-chevron { transform: rotate(-135deg); margin-bottom: -4px; }
+.book-drop { padding: 16px 18px 18px; border-top: 1px solid var(--line); }
+.book-desc { font-size: 16px; line-height: 1.55; }
+.book-desc > :first-child { margin-top: 0; }
+.book-desc h4 { font: 600 17px/1.4 var(--font-body); margin: 0 0 10px; }
+.book-desc p { margin: 0 0 10px; }
+.book-desc ul { margin: 0 0 12px; padding-left: 22px; }
+.book-desc li { margin-bottom: 4px; }
+.book-actions { display: flex; flex-wrap: wrap; gap: 8px; padding-top: 8px; }
 
 .covers { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 16px; }
 .two-col .covers { grid-template-columns: repeat(4, minmax(0, 1fr)); }
@@ -266,6 +283,7 @@ p { margin: 0; }
   .books { grid-template-columns: 1fr; gap: 12px; }
   .two-col { grid-template-columns: 1fr; gap: 32px; }
   .book-row { padding: 14px; gap: 14px; }
+  .book-drop { padding: 14px; }
   .book-row img { height: 104px; }
   .book-title { font-size: 20px; }
   .book-actions .btn { flex: 1; }
